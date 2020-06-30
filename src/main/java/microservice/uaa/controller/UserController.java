@@ -31,6 +31,7 @@ public class UserController {
 	//@PreAuthorize("hasRole('ROLE_AGENCY')")
 	@GetMapping("/whoami")
 	public User user(Principal user) {
+		System.out.println("User controller bay moj");
 		return this.userService.findByUsername(user.getName());
 	}
 
