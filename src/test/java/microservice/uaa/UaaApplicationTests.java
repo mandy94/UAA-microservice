@@ -1,10 +1,10 @@
-package com.example.demoms;
+package microservice.uaa;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemomsApplicationTests {
+class UaaApplicationTests {
 
 	@Test
 	void contextLoads() {
