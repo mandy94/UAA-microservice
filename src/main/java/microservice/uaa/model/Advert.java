@@ -15,16 +15,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import microservice.uaa.model.additions.CarClass;
-import microservice.uaa.model.additions.GearBoxType;
-import microservice.uaa.model.additions.Manufacturer;
-
+import microservice.uaa.model.additions.*;
 
 
 @Entity
 @Table(name = "ADVERT")
 public class Advert {
 	
+
 
 		@Id
 	    @Column(name = "id")
@@ -44,6 +42,13 @@ public class Advert {
 		@ManyToOne
 		@JoinColumn(name="manufacturer_id")
 		private Manufacturer manufacturer;
+		
+
+		@ManyToOne
+		@JoinColumn(name="fuel_id")
+		private Fuel fuel;
+		
+		
 		
 //		@ManyToOne
 //		@JoinColumn(name="model_id")	
@@ -192,4 +197,12 @@ public class Advert {
 		public void setRequests(List<RentingRequest> requests) {
 			this.requests = requests;
 		}
+
+		public Fuel getFuel() {
+		return fuel;
+	}
+
+	public void setFuel(Fuel fuel) {
+		this.fuel = fuel;
+	}
 }
