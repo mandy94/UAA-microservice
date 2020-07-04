@@ -1,4 +1,4 @@
-package microservice.uaa.controller;
+package microservice.uaa.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

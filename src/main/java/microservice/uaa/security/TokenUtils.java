@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import microservice.uaa.controller.User;
-
+import microservice.uaa.model.User;
 // Utility klasa za rad sa JSON Web Tokenima
 @Component
 public class TokenUtils {

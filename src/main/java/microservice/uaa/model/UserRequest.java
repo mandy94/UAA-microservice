@@ -1,4 +1,4 @@
-package microservice.uaa.controller;
+package microservice.uaa.model;
 // DTO koji preuzima podatke iz HTML forme za registraciju
 public class UserRequest {
 

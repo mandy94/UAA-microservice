@@ -5,6 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import microservice.uaa.model.Authority;
+import microservice.uaa.model.User;
+import microservice.uaa.model.UserRequest;
+
+
 @Service
 public class UserServiceImpl implements UserService {
 

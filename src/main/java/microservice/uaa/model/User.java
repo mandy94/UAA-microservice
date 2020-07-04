@@ -1,4 +1,4 @@
-package microservice.uaa.controller;
+package microservice.uaa.model;
 
 import java.sql.Timestamp;
 import java.util.Collection;
@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -62,26 +63,26 @@ public class User implements UserDetails {
     @Column(name = "last_password_reset_date")
     private Timestamp lastPasswordResetDate;
     
-//    @OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private Set<Pricelist> priceLists;
-//
+    @OneToMany(mappedBy = "creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Pricelist> priceLists;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_authority",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     private List<Authority> authorities;
-//
-//    @OneToMany(mappedBy = "user_id")
-//    private List<Advert> users_adverts;
-//    
-//    public List<Advert> getUsers_adverts() {
-//		return users_adverts;
-//	}
-//
-//	public void setUsers_adverts(List<Advert> users_adverts) {
-//		this.users_adverts = users_adverts;
-//	}
+
+    @OneToMany(mappedBy = "user_id")
+    private List<Advert> users_adverts;
+    
+    public List<Advert> getUsers_adverts() {
+		return users_adverts;
+	}
+
+	public void setUsers_adverts(List<Advert> users_adverts) {
+		this.users_adverts = users_adverts;
+	}
 
 	public Long getId() {
         return id;

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import microservice.uaa.model.User;
 import microservice.uaa.security.TokenUtils;
+
 
 
 // Primer kontrolera cijim metodama mogu pristupiti samo autorizovani korisnici
@@ -39,8 +41,8 @@ public class UserController {
 	public List<User> loadAll() {
 		return this.userService.findAll();
 	}
+	
 
-	//@PreAuthorize("hasRole('ROLE_AGENCY')")
 	@GetMapping("/whoami")
 	public User user(@RequestHeader("Authorization") String header) {
 		System.out.println(header);

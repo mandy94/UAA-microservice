@@ -10,5 +10,6 @@ public class UaaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UaaApplication.class, args);
 	}
+	
 
 }
