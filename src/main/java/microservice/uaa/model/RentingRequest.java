@@ -1,5 +1,4 @@
 package microservice.uaa.model;
-
 import java.util.ArrayList;
 import java.util.List;
 

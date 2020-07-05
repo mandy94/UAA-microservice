@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -45,7 +44,6 @@ public class UserController {
 
 	@GetMapping("/whoami")
 	public User user(@RequestHeader("Authorization") String header) {
-		System.out.println(header);
 
 		String[] divider = header.split(" ");
 		String token;

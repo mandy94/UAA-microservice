@@ -23,8 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import microservice.uaa.model.User;
-import microservice.uaa.model.UserRequest;
+import microservice.uaa.model.*;
 import microservice.uaa.security.TokenUtils;
 import microservice.uaa.security.auth.JwtAuthenticationRequest;
 
@@ -49,7 +48,6 @@ public class AuthenticationController {
 	public ResponseEntity<UserTokenState> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest,
 			HttpServletResponse response) {
 
-		System.out.println("USLI VAMO ");
 		Authentication authentication = authenticationManager
 				.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),
 						authenticationRequest.getPassword()));

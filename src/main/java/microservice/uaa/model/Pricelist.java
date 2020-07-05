@@ -1,5 +1,4 @@
 package microservice.uaa.model;
-
 import java.util.Set;
 
 import javax.persistence.CascadeType;

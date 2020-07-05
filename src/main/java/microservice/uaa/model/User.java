@@ -1,5 +1,4 @@
 package microservice.uaa.model;
-
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;

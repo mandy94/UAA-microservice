@@ -1,5 +1,4 @@
-package microservice.uaa.model;
-// DTO koji enkapsulira generisani JWT i njegovo trajanje koji se vracaju klijentu
+package microservice.uaa.model;// DTO koji enkapsulira generisani JWT i njegovo trajanje koji se vracaju klijentu
 public class UserTokenState {
 	
     private String accessToken;
