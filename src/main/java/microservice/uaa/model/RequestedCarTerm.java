@@ -25,9 +25,8 @@ public class RequestedCarTerm {
 	
 	@ManyToOne
 	@JoinColumn(name = "rent_id")
-@JsonIgnore
-	RentingRequest rent;
-	
+	@JsonIgnore
+	BundleRequest rent_id;	
 	
 	@Column
 	String rentingDate;
@@ -37,10 +36,14 @@ public class RequestedCarTerm {
 	String rentingTime;
 	@Column
 	String returningTime;
+	String status;
 	
 	public RequestedCarTerm() {}
-	public RequestedCarTerm(Advert reqAdvert) {
+	
+	public RequestedCarTerm(Advert reqAdvert, BundleRequest req) {
+		this.rent_id = req;
 		this.advert = reqAdvert;
+		this.status = "PENDING";
 	}
 	public Long getId() {
 		return id;
@@ -77,6 +80,30 @@ public class RequestedCarTerm {
 	}
 	public void setReturningTime(String returningTime) {
 		this.returningTime = returningTime;
+	}
+
+	public BundleRequest getRent() {
+		return rent_id;
+	}
+
+	public void setRent(BundleRequest rent) {
+		this.rent_id = rent;
+	}
+
+	public BundleRequest getRent_id() {
+		return rent_id;
+	}
+
+	public void setRent_id(BundleRequest rent_id) {
+		this.rent_id = rent_id;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}	
 	
 

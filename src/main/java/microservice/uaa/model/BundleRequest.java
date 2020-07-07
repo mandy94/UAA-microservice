@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class RentingRequest {
+public class BundleRequest {
 		
 	@Id
     @Column(name = "id")
@@ -19,18 +21,18 @@ public class RentingRequest {
 	
 		Long whoasked;
 		Long whoposted;
-		String status;
 		
-		@ManyToMany
-		List<Advert> adverts = new ArrayList<Advert>();
+		@OneToMany(mappedBy = "rent_id")
+		List<RequestedCarTerm> requests = new ArrayList<RequestedCarTerm>();
 		
 		// GETTERS ADN SETTERS 
 		
-		public List<Advert> getAdverts() {
-			return adverts;
+	
+		public List<RequestedCarTerm> getRequests() {
+			return requests;
 		}
-		public void setAdverts(List<Advert> adverts) {
-			this.adverts = adverts;
+		public void setRequests(List<RequestedCarTerm> requests) {
+			this.requests = requests;
 		}
 		public Long getId() {
 			return id;
@@ -50,12 +52,5 @@ public class RentingRequest {
 		public void setWhoposted(Long whoposted) {
 			this.whoposted = whoposted;
 		}
-		public String getStatus() {
-			return status;
-		}
-		public void setStatus(String status) {
-			this.status = status;
-		}
-		
 
 }
