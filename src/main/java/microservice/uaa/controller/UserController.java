@@ -1,17 +1,21 @@
 package microservice.uaa.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import microservice.uaa.model.User;
+import microservice.uaa.model.UserDTO;
 import microservice.uaa.security.TokenUtils;
 
 
@@ -37,8 +41,13 @@ public class UserController {
 	}
 
 	@GetMapping("/user/all")
-	public List<User> loadAll() {
-		return this.userService.findAll();
+	public List<UserDTO> loadAll() {
+		List<UserDTO> res = new ArrayList<>();
+		for( User u :this.userService.findAll())
+		{
+			res.add(new UserDTO(u));
+		}
+		return res;
 	}
 	
 
@@ -53,6 +62,32 @@ public class UserController {
 			token = divider[0];
 		String username = this.tokenUtils.getUsernameFromToken(token);
 		return (User) this.userDetailsService.loadUserByUsername(username);
+		
+	}
+	
+	@PutMapping(value = "/user/block")
+	List<UserDTO> block(@RequestBody Long id){
+		
+		userService.blockUser(id);
+		List<UserDTO> res = new ArrayList<>();
+		for( User u :this.userService.findAll())
+		{
+			res.add(new UserDTO(u));
+		}
+		return res;	
+		
+	}
+	
+	@PutMapping(value = "/user/activate")
+	List<UserDTO> activek(@RequestBody Long id){
+		
+		userService.activateUser(id);
+		List<UserDTO> res = new ArrayList<>();
+		for( User u :this.userService.findAll())
+		{
+			res.add(new UserDTO(u));
+		}
+		return res;	
 		
 	}
 

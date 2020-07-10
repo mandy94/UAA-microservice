@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public List<User> findAll() {
-		List<User> result = userRepository.findAll();
+		List<User> result = userRepository.findAllByOrderByIdAsc();
 		return result;
 	}
 
@@ -53,6 +53,22 @@ public class UserServiceImpl implements UserService {
 		
 		u = this.userRepository.save(u);
 		return u;
+	}
+
+	@Override
+	public void blockUser(Long id) {
+		User u  = userRepository.findById(id).orElse(null);
+		u.setStatus("BLOK");
+		userRepository.save(u);
+		
+	}
+
+	@Override
+	public void activateUser(Long id) {
+		User u  = userRepository.findById(id).orElse(null);
+		u.setStatus("ACTIVE");
+		userRepository.save(u);
+		
 	}
 
 

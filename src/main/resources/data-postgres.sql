@@ -40,11 +40,11 @@ INSERT INTO MANUFACTURER ( title) VALUES ('Shevrolet');  -- 5
 INSERT INTO MANUFACTURER ( title) VALUES ('Volkswagen');  -- 6
 INSERT INTO MANUFACTURER ( title) VALUES ('Zastava');  -- 6
 
-INSERT INTO CITY (id, title, code) VALUES (1, 'Novi Sad', 21000);
-INSERT INTO CITY (id, title, code) VALUES (2, 'Beograd', 11000);
-INSERT INTO CITY (id, title, code) VALUES (3, 'Nis', 21000);
-INSERT INTO CITY (id, title, code) VALUES (4, 'Cacak', 21000);
-INSERT INTO CITY (id, title, code) VALUES (5, 'Subotica', 21000);
+INSERT INTO CITY ( title, code) VALUES ( 'Novi Sad', 21000);
+INSERT INTO CITY ( title, code) VALUES ( 'Beograd', 11000);
+INSERT INTO CITY ( title, code) VALUES ( 'Nis', 21000);
+INSERT INTO CITY ( title, code) VALUES ( 'Cacak', 21000);
+INSERT INTO CITY ( title, code) VALUES ( 'Subotica', 21000);
 
 INSERT INTO GEAR(title) VALUES ('Manuelni');
 INSERT INTO GEAR(title) VALUES ('Automatski');
