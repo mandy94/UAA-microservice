@@ -28,6 +28,8 @@ public class Pricelist {
 
     @Column
     private Double cdw;
+    @Column
+    private Double bonus;
     
     @OneToMany(mappedBy = "priceList", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public Set<Advert> advert;
@@ -81,6 +83,14 @@ public class Pricelist {
 
 	public void setCreator(User creator) {
 		this.creator = creator;
+	}
+
+	public Double getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(Double bonus) {
+		this.bonus = bonus;
 	}
     
     

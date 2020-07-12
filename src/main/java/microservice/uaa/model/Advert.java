@@ -39,7 +39,8 @@ public class Advert {
 		
 		@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	    public Pricelist priceList;
-		
+		@Column
+		private String descrption;
 		@ManyToOne
 		@JoinColumn(name="manufacturer_id")
 		private Manufacturer manufacturer;
