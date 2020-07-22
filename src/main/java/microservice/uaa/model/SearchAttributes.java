@@ -1,43 +1,34 @@
 package microservice.uaa.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import microservice.uaa.model.additions.*;
 
-public class Codebook {
 
-	private List<Fuel> fuels = new ArrayList<>();
-	private List<Model> models  = new ArrayList<>();
-	private List<Manufacturer> manufacturers  = new ArrayList<>();
-	private List<City> cities  = new ArrayList<>();
-	private List<GearBoxType> gearType  = new ArrayList<>();
-	private List<CarClass> cclass = new ArrayList<>();	
-	
-	
-	public List<Fuel> getFuels() {
-		return fuels;
-	}
-	public void setFuels(List<Fuel> fuels) {
-		this.fuels = fuels;
-	}
+public class SearchAttributes {
+
+	private List<Model> models; 
+	private List<Fuel> fuels;
+	private List<Manufacturer> manufacturers;
+	private List<GearBoxType> gearType;
+	private List<CarClass> cclass;
 	public List<Model> getModels() {
 		return models;
 	}
 	public void setModels(List<Model> models) {
 		this.models = models;
 	}
+	public List<Fuel> getFuels() {
+		return fuels;
+	}
+	public void setFuels(List<Fuel> fuels) {
+		this.fuels = fuels;
+	}
 	public List<Manufacturer> getManufacturers() {
 		return manufacturers;
 	}
 	public void setManufacturers(List<Manufacturer> manufacturers) {
 		this.manufacturers = manufacturers;
-	}
-	public List<City> getCities() {
-		return cities;
-	}
-	public void setCities(List<City> cities) {
-		this.cities = cities;
 	}
 	public List<GearBoxType> getGearType() {
 		return gearType;
@@ -53,6 +44,5 @@ public class Codebook {
 	}
 	
 	
-
+	
 }
-

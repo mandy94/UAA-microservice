@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -18,11 +19,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import microservice.uaa.model.additions.CarClass;
-import microservice.uaa.model.additions.Fuel;
-import microservice.uaa.model.additions.GearBoxType;
-import microservice.uaa.model.additions.Manufacturer;
-
+import microservice.uaa.model.additions.*;
 @Entity
 @Table(name = "ADVERT")
 public class Advert {
@@ -35,9 +32,14 @@ public class Advert {
 	    private String title;
 		
 		@Column(name = "user_id")
-		private Long user_id;
+		private Long user_id;		
+	
 		
-		@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+		@Column
+		private String descrption;
+		
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)		
+		@JsonIgnore
 	    public Pricelist priceList;
 		
 		@ManyToOne
@@ -64,6 +66,7 @@ public class Advert {
 		@JsonIgnore
 		private List<RequestedCarTerm> requests = new ArrayList<RequestedCarTerm>();
 		
+		@Column
 		private String imgmain;
 	
 		
@@ -72,7 +75,32 @@ public class Advert {
 		private Integer numberOfKidsSeat;
 		private Boolean CDWprotection;
 		
+//		public Advert(AdvertDAO adById) {
+//			this.title= adById.getTitle();
+//			this.model = adById.getModel();
+//			this.imgmain = adById.getImg();
+//			this.milage = (float) adById.getMilage();
+//			this.kidsSeat = adById.getNumberOfKidsSeat()>0 ? true : false;
+//			this.numberOfKidsSeat = this.kidsSeat ? (int) adById.getNumberOfKidsSeat() : 0;
+//			this.CDWprotection = adById.getCDW() > 0 ;
+//		}
+		public Advert() {}
 		
+		public Advert(AdvertDTO adById) {
+			this.id = adById.getId();
+			this.title= adById.getTitle();
+			this.priceList =adById.getPriceList();
+//			this.manufacturer = adById.getManufacturer();
+//			this.gear = adById.getGear().getTitle();
+//			this.fuel = adById.getFuel().getTitle();
+			this.model = adById.getModel();
+			this.imgmain = adById.getImgmain();
+			this.milage = adById.getMilage();
+			this.kidsSeat = adById.getKidsSeat();
+			this.numberOfKidsSeat = adById.getNumberOfKidsSeat();
+			this.CDWprotection = adById.getCDWprotection();
+		}
+
 		@ManyToOne
 		@JoinColumn(name="user_id")		
 		public Long getUser_id() {
@@ -198,11 +226,14 @@ public class Advert {
 		this.fuel = fuel;
 	}
 
-	public List<RequestedCarTerm> getRequests() {
-		return requests;
+	public String getDescrption() {
+		return descrption;
 	}
 
-	public void setRequests(List<RequestedCarTerm> requests) {
-		this.requests = requests;
+	public void setDescrption(String descrption) {
+		this.descrption = descrption;
 	}
+
+
+
 }

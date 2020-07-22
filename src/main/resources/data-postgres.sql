@@ -29,6 +29,7 @@ INSERT INTO MODEL (title) VALUES  ('C1');
 INSERT INTO MODEL (title) VALUES  ('C2');
 INSERT INTO MODEL (title) VALUES  ('C3'); -- 3
 INSERT INTO MODEL (title) VALUES  ('A1');  --4 
+INSERT INTO MODEL (title) VALUES  ('A5');  --4 
 INSERT INTO MODEL (title) VALUES  ('208'); --5 
 INSERT INTO MODEL (title) VALUES  ('Fabia');--6
 
@@ -54,9 +55,35 @@ INSERT INTO FUEL (title) VALUES ('Gas');
 INSERT INTO FUEL (title) VALUES ('Benzin');
 INSERT INTO FUEL (title) VALUES ('Nafta');
 
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3200, 500, 1, 'Prvi', 10);
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3000, 700, 4, 'Drugi', 20);
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3000, 700, 2, 'Drugi', 20);
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3000, 700, 3, 'Drugi', 20);
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (10000, 1200, 500, 5, 'Treci', 0);
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (0, 1000, 100, 5, 'Cetvrti', 5);
+
+INSERT INTO BONUS (creator, value) VALUES(5,5);
+INSERT INTO BONUS (creator, value) VALUES(4,5);
+INSERT INTO BONUS (creator, value) VALUES(4,10);
+INSERT INTO BONUS (creator, value) VALUES(3,15);
+INSERT INTO BONUS (creator, value) VALUES(5,20);
+
 INSERT INTO CARCLASS (title) VALUES ('SUV');
-INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model, gear_id, cclass_id, fuel_id) VALUES (1,'https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/vehicles/2020/cars/spark/colorizer/01-images/2020-spark-2lt-gg2-colorizer.jpg?imwidth=960', 'Chevrolet SPARK', true, true, 10000, 2, 5, 'SPARK', 2,1,3);
-INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model ,gear_id, cclass_id,fuel_id) VALUES (1,'../../assets/image/paugeot208.jpg', 'Peugeot 208', true, true, 10000, 2, 1, '208', 1 ,1,2);
-INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model , gear_id, cclass_id, fuel_id) VALUES (1,'../../assets/image/volkswagen_tiguan.png', 'Volkswagen TIGUAN', true, true, 10000, 2, 6,'TIGUAN', 1 ,1,2);
-INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model, gear_id, cclass_id, fuel_id) VALUES (4,'../../assets/image/yugo.jpg', 'Yugo', true, true, 10000, 2, 7,'128', 1 ,1,1);
-INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model, gear_id, cclass_id, fuel_id) VALUES (5,'../../assets/image/audio_a5.png', 'Audio A5', true, true, 10000, 2, 4,'A5', 1 ,1,1);
+
+INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model, gear_id, cclass_id, fuel_id, descrption, price_list_id) VALUES (1,'toyotacamry.jpg', 'Chevrolet SPARK', true, true, 10000, 2, 5, 'SPARK', 2,1,3, 'Predstavnik gradskog automobila koji cilja na kupce nudeći praktičnost, ali i poseban prepoznatljiv i jedinstven izgled. ', 1);
+
+INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model ,gear_id, cclass_id,fuel_id,descrption, price_list_id) VALUES (1,'paugeot208.jpg', 'Peugeot 208', true, true, 10000, 2, 1, '208', 1 ,1,2, 'Najnovija generacija Peugeota 208',1);
+
+INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model , gear_id, cclass_id, fuel_id, price_list_id) VALUES (1,'volkswagen_tiguan.jpg', 'Volkswagen TIGUAN', true, true, 10000, 2, 6,'TIGUAN', 1 ,1,2, 1);
+
+INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model, gear_id, cclass_id, fuel_id, price_list_id) VALUES (4,'yugo.jpg', 'Yugo', true, true, 10000, 2, 7,'128', 1 ,1,1, 2);
+
+INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage , number_of_kids_seat,manufacturer_id, model, gear_id, cclass_id, fuel_id, price_list_id) VALUES (5,'audio_a5.jpg', 'Audio A5', true, true, 10000, 2, 4,'A5', 1 ,1,1, 6);
+
+
+
+-- External img data -----
+
+copy image_table from 'C:/Users/spahija/Desktop/data/tables.csv';
+SELECT setval('image_table_id_seq', COALESCE((SELECT MAX(id)+1 FROM image_table), 1), false);
+
