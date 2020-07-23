@@ -27,11 +27,14 @@ public class UserDTO {
 	private String parseAuthorities(Collection<? extends GrantedAuthority> authorities) {
 	String res;
 		for(GrantedAuthority auth : authorities) {
-			if(auth.getAuthority().endsWith("USER")) return "KOIRSNIK";
-			if(auth.getAuthority().endsWith("AGENCY")) return "AGENCIJA";
-			if(auth.getAuthority().endsWith("ADMIN")) return "ADMINISTRTOR";
+			if(auth.getAuthority().contains("ADMIN")) return "ADMINISTRATOR";
+			
 		}
-		return "";
+		for(GrantedAuthority auth : authorities) {
+		if(auth.getAuthority().endsWith("AGENCY")) return "AGENCIJA";
+	
+		}
+		return "KORISNIK";
 	}
 	public String getUsername() {
 		return username;

@@ -41,8 +41,6 @@ public class Advert {
 		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)		
 		@JsonIgnore
 	    public Pricelist priceList;
-		@Column
-		private String descrption;
 		@ManyToOne
 		@JoinColumn(name="manufacturer_id")
 		private Manufacturer manufacturer;

@@ -4,12 +4,14 @@
 
  --DROP TABLE USERS ;--IF EXISTS(SELECT * FROM  USERS);
 
-INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('agnt', '$2a$04$ojOHchifXeLAevDCPwfyX.p0b2MbjyDed5CPk/1IyMBVT1Gl3lZBK', 'Marko', 'Markovic', 'user@example.com', false'2017-10-01 21:58:58.508-07', 'BLOCK');
+INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('agnt', '$2a$04$ojOHchifXeLAevDCPwfyX.p0b2MbjyDed5CPk/1IyMBVT1Gl3lZBK', 'Marko', 'Markovic', 'user@example.com', false,'2017-10-01 21:58:58.508-07', 'BLOCK');
 
 INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('admin', '$2a$04$ojOHchifXeLAevDCPwfyX.p0b2MbjyDed5CPk/1IyMBVT1Gl3lZBK', 'Nikola', 'Nikolic', 'admin@example.com', true, '2017-10-01 18:57:58.508-07', 'ACTIVE');
 
 INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('user', '$2a$04$Vbug2lwwJGrvUXTj6z7ff.97IzVBkrJ1XfApfGNl.Z695zqcnPYra', 'Maja', 'Savic', 'kupac@example.com', true, '2017-10-01 18:57:58.508-07', 'ACTIVE');
+
 INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('peraSaKlise', '$2a$04$WswSnQIAkowjNIN/ZDk8w.LD5PwqdnTJLrRtgxP80uTokxC8LF1xa', 'Pera', 'Peric', 'prea@gmail.com', true, '2017-10-01 18:57:58.508-07', 'ACTIVE');
+
 INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('maraSmara' ,'$2a$04$WFggkfJRG7dQKQELGDNXbemRQgSFG6GobpF94XJJ0p/oOu0Ms1.gi', 'Mara', 'Maric', 'merry@gmail.com', true, '2017-10-01 18:57:58.508-07' , 'ACTIVE');
 
 
@@ -59,6 +61,8 @@ INSERT INTO FUEL (title) VALUES ('Nafta');
 
 INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3200, 500, 1, 'Prvi', 10);
 INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3000, 700, 4, 'Drugi', 20);
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3000, 700, 2, 'Drugi', 20);
+INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (12000, 3000, 700, 3, 'Drugi', 20);
 INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (10000, 1200, 500, 5, 'Treci', 0);
 INSERT INTO PRICELIST (cdw,price_per_day, price_per_km, creator_id, name, bonus) VALUES (0, 1000, 100, 5, 'Cetvrti', 5);
 

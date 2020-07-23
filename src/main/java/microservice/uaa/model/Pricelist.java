@@ -30,8 +30,6 @@ public class Pricelist {
 
     @Column
     private Double cdw;
-    @Column
-    private Double bonus;
     
     @Column
     private String name;

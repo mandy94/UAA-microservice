@@ -9,6 +9,8 @@ public interface UserService {
     User findByUsername(String username);
     List<User> findAll ();
 	User save(UserRequest userRequest);
+	void save(User user);
 	void blockUser(Long id);
 	void activateUser(Long id);
+	void removeUser(Long id);
 }

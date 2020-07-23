@@ -1,9 +1,16 @@
 package microservice.uaa.controller;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import microservice.uaa.model.Authority;
 import microservice.uaa.model.User;
@@ -21,6 +28,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private AuthorityService authService;
 
+	
 	@Override
 	public User findByUsername(String username) {
 		User u = userRepository.findByUsername(username);
@@ -58,7 +66,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void blockUser(Long id) {
 		User u  = userRepository.findById(id).orElse(null);
-		u.setStatus("BLOK");
+		u.setStatus("BLOCK");
+		u.setEnabled(false);
 		userRepository.save(u);
 		
 	}
@@ -67,7 +76,22 @@ public class UserServiceImpl implements UserService {
 	public void activateUser(Long id) {
 		User u  = userRepository.findById(id).orElse(null);
 		u.setStatus("ACTIVE");
+		u.setEnabled(true);
 		userRepository.save(u);
+		
+	}
+
+	@Override
+	public void save(User user) {
+		userRepository.save(user);
+		
+	}
+
+	@Override
+	public void removeUser(Long id) {
+		
+		
+		userRepository.deleteById(id);
 		
 	}
 
