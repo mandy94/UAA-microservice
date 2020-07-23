@@ -12,7 +12,7 @@ public class UserDTO {
 	String status;
 	String email;
 	String role;
-	
+	boolean enabled;
 	public UserDTO() {}
 	public UserDTO(User body) {
 		this.username = body.getUsername();
@@ -22,6 +22,7 @@ public class UserDTO {
 		this.username = body.getUsername();
 		this.status = body.getStatus();
 		this.role = parseAuthorities( body.getAuthorities());
+		this.enabled = body.isEnabled();
 	}
 	private String parseAuthorities(Collection<? extends GrantedAuthority> authorities) {
 	String res;
@@ -67,5 +68,11 @@ public class UserDTO {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 }
