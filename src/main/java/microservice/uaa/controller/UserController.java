@@ -1,6 +1,5 @@
 package microservice.uaa.controller;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -22,7 +21,6 @@ import org.springframework.web.client.RestTemplate;
 
 import microservice.uaa.model.User;
 import microservice.uaa.model.UserDTO;
-import microservice.uaa.model.UserRequest;
 import microservice.uaa.security.TokenUtils;
 
 
