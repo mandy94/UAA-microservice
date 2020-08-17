@@ -4,7 +4,7 @@
 
  --DROP TABLE USERS ;--IF EXISTS(SELECT * FROM  USERS);
 
-INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('agnt', '$2a$04$ojOHchifXeLAevDCPwfyX.p0b2MbjyDed5CPk/1IyMBVT1Gl3lZBK', 'Marko', 'Markovic', 'user@example.com', false,'2017-10-01 21:58:58.508-07', 'BLOCK');
+INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('agnt', '$2a$04$ojOHchifXeLAevDCPwfyX.p0b2MbjyDed5CPk/1IyMBVT1Gl3lZBK', 'Marko', 'Markovic', 'user@example.com', true ,'2017-10-01 21:58:58.508-07', 'ACTIVE');
 
 INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status) VALUES ('admin', '$2a$04$ojOHchifXeLAevDCPwfyX.p0b2MbjyDed5CPk/1IyMBVT1Gl3lZBK', 'Nikola', 'Nikolic', 'admin@example.com', true, '2017-10-01 18:57:58.508-07', 'ACTIVE');
 
@@ -88,6 +88,6 @@ INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage ,
 
 -- External img data -----
 
-copy image_table from 'C:/Users/spahija/Desktop/data/tables.csv';
+copy image_table from 'C:/tables.csv';
 SELECT setval('image_table_id_seq', COALESCE((SELECT MAX(id)+1 FROM image_table), 1), false);
 
