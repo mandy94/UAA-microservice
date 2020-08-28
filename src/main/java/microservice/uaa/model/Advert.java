@@ -231,7 +231,18 @@ public class Advert {
 
 	public void setDescrption(String descrption) {
 		this.descrption = descrption;
+	
 	}
+	@Column
+	private Float limitMilage;
+	
+	public Float getLimitMilage() {
+		return limitMilage;
+	}
+	public void setLimitMilage(Float limitMilage) {
+		this.limitMilage = limitMilage;
+	}
+
 
 
 

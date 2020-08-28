@@ -3,6 +3,10 @@
 
 
  --DROP TABLE USERS ;--IF EXISTS(SELECT * FROM  USERS);
+copy image_table from 'C:/tables.csv';
+SELECT setval('image_table_id_seq', COALESCE((SELECT MAX(id)+1 FROM image_table), 1), false);
+
+
 
 INSERT INTO USERS (username, password, first_name, last_name, email, enabled, last_password_reset_date, status, can_log,can_post) 
 VALUES ('agnt', '$2a$04$ojOHchifXeLAevDCPwfyX.p0b2MbjyDed5CPk/1IyMBVT1Gl3lZBK', 'Marko', 'Markovic', 'user@example.com', true ,'2017-10-01 21:58:58.508-07', 'ACTIVE',true,true);
@@ -91,8 +95,29 @@ INSERT INTO ADVERT (user_id, imgMain,  title, cdwprotection, kids_seat, milage ,
 
 
 
--- External img data -----
+INSERT INTO BUNDLE_REQUEST (whoasked, whoposted) values ( 5 , 1);
+INSERT INTO BUNDLE_REQUEST (whoasked, whoposted) values ( 4 , 1);
 
-copy image_table from 'C:/tables.csv';
-SELECT setval('image_table_id_seq', COALESCE((SELECT MAX(id)+1 FROM image_table), 1), false);
+
+
+INSERT INTO REQUESTED_CAR_TERM (renting_date, renting_time, returning_date, returning_time, status    , advert_id, rent_id) 
+                        values ('15.08.2020', '10:00'     , '18.08.2020'  , '12:00'       , 'PENDING' , 1        , 1);
+
+INSERT INTO REQUESTED_CAR_TERM (renting_date, renting_time,  returning_date, returning_time, status    , advert_id, rent_id) 
+                        values ('16.08.2020', '10:00'     , '19.08.2020'  , '13:00'        , 'PENDING' , 2        , 1);
+
+
+INSERT INTO REQUESTED_CAR_TERM (renting_date, renting_time,  returning_date, returning_time, status    , advert_id, rent_id) 
+                        values ('25.08.2020', '10:00'     , '28.08.2020'  , '14:00'        , 'PENDING' , 1        , 2);
+
+INSERT INTO REQUESTED_CAR_TERM (renting_date, renting_time, returning_date, returning_time, status    , advert_id, rent_id) 
+                        values ('17.08.2020', '10:00'     , '22.08.2020'  , '16:00'       , 'PENDING' , 3        , 2);
+
+
+
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (1, 'Chevrolet SPARK'  ,195000);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (2, 'Peugeot 208'      ,132000);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (3, 'Volkswagen TIGUAN',189000);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (4, 'Yugo'             ,255002);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (5, 'Audio A5'         ,212000);
 
