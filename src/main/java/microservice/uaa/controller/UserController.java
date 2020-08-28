@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import microservice.uaa.model.Permission;
 import microservice.uaa.model.User;
 import microservice.uaa.model.UserDTO;
 import microservice.uaa.security.TokenUtils;
@@ -95,6 +96,15 @@ public class UserController {
 		
 	}
 	
+	@GetMapping(value= "/user/{id}/permissions")
+		Permission getUsersPermissionConfigs(@PathVariable Long id) {
+		Permission perm = new Permission();
+		User target = userService.findById(id);
+		perm.setCanLog(target.isCanLoggin());
+		perm.setCanPost(target.isCanPost());
+		return perm;
+	}
+	
 	@PutMapping(value = "/user/block")
 	List<UserDTO> block(@RequestBody Long id){
 		
@@ -107,6 +117,14 @@ public class UserController {
 		return res;	
 		
 	}
+	@PutMapping(value ="/user/{id}/update-permissions")
+	void updatePermisionToLog(@PathVariable Long id, @RequestBody Permission state) {
+		User target = userService.findById(id);
+		target.setCanLoggin(state.getCanLog());
+		target.setCanPost(state.getCanPost());
+		userService.save(target);
+	}
+	
 	
 	@PutMapping(value = "/user/activate")
 	List<UserDTO> activek(@RequestBody Long id){

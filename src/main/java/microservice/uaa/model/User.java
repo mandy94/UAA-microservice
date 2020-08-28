@@ -58,6 +58,13 @@ public class User implements UserDetails {
 
     @Column(name = "enabled")
     private boolean enabled;
+    
+    @Column(name = "canLog")
+    private boolean canLoggin;
+    
+    @Column(name = "canPost")
+    private boolean canPost;
+    
 
     @Column(name = "last_password_reset_date")
     private Timestamp lastPasswordResetDate;
@@ -186,6 +193,22 @@ public class User implements UserDetails {
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
+	public boolean isCanLoggin() {
+		return canLoggin;
+	}
+
+	public void setCanLoggin(boolean canLoggin) {
+		this.canLoggin = canLoggin;
+	}
+
+	public boolean isCanPost() {
+		return canPost;
+	}
+
+	public void setCanPost(boolean canPost) {
+		this.canPost = canPost;
+	}
 
 	
 }
