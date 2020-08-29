@@ -115,9 +115,9 @@ INSERT INTO REQUESTED_CAR_TERM (renting_date, renting_time, returning_date, retu
 
 
 
-INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (1, 'Chevrolet SPARK'  ,195000);
-INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (2, 'Peugeot 208'      ,132000);
-INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (3, 'Volkswagen TIGUAN',189000);
-INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (4, 'Yugo'             ,255002);
-INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage) VALUES (5, 'Audio A5'         ,212000);
 
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage, rent_number) VALUES (1, 'Chevrolet SPARK'  ,195000, 10);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage, rent_number) VALUES (2, 'Peugeot 208'      ,132000, 15);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage, rent_number) VALUES (3, 'Volkswagen TIGUAN',189000, 35);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage, rent_number) VALUES (4, 'Yugo'             ,255002, 5);
+INSERT INTO STATISTIC_DATA ( advert_id,advert_name, milage, rent_number) VALUES (5, 'Audio A5'         ,212000, 8);
